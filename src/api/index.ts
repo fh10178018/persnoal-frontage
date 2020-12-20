@@ -24,7 +24,7 @@ export interface ResData {
 
 // 最基本的全局配置
 const instance = axios.create({
-  baseURL: process.env.REACT_APP_HTTP_BASEURL,
+  baseURL: '/api',
   timeout: 2500,
   responseType: "json",
   withCredentials: true, // 是否允许带cookie这些
@@ -33,7 +33,6 @@ const instance = axios.create({
   }
 })
 export const Api = (config: AxiosRequestConfig) => {
-  console.log(process.env.REACT_APP_HTTP_BASEURL)
   switch (config.method) {
     case 'GET':
     case 'get': {
