@@ -61,7 +61,7 @@ const MyMenu = styled(Menu)`
   font-weight:bold;
   .ant-menu-item-selected{
     letter-spacing: 5px;
-    color:#c14652 !important;
+    color:${props => props.theme.primary} !important;
     transform: scale(1.2);
     ::before{
       opacity:1;
@@ -96,7 +96,7 @@ const MenuItem = styled(Menu.Item)`
   }
   :hover{
     letter-spacing: 5px;
-    color:#c14652 !important;
+    color:${props => props.theme.primary} !important;
     ::before{
       opacity:1;
     }
