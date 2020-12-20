@@ -12,7 +12,7 @@ const Wrap = styled.div`
 `
 const MAvatar = styled.div`
   position: relative;
-  background:url(${myImage}) #c14652 no-repeat;
+  background:url(${myImage}) ${props => props.theme.primary} no-repeat;
   box-shadow: inset -2px -2px 10px #0000008c;
   background-size:100% 100%;
   width:300px;
