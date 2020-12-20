@@ -6,13 +6,13 @@ import styled from "styled-components/macro";
 import { RootState } from '../../redux/reducers';
 import './index.css'
 
-import MyPower from './MyPower'
+import MyPower from '../../components/content/MyPower'
 import MyAvatar from './MyAvatar';
-import Resumes from './Resumes';
+import Resumes from '../../components/content/MyResumes';
 import TitleOne from './TitleOne';
 import TitleTwo from './TitleTwo';
 import Blog from './Blog';
-import ContactMe from './ContactMe';
+import ContactMe from '../../components/content/Contacts';
 const { Content } = Layout;
 const MyLayout = styled(Layout)`
   background:transparent;
