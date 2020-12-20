@@ -1,0 +1,38 @@
+import React, { useEffect, useState } from 'react'
+import Wrap from './page';
+import zhCN from 'antd/lib/locale/zh_CN'; // 由于 antd 组件的默认文案是英文，所以需要修改为中文
+import 'antd/dist/antd.css';
+import './fonts/index.css';
+import './css/animations.css';
+import { ConfigProvider } from 'antd';
+import { useSelector } from 'react-redux'
+import { RootState } from './redux/reducers'
+import Loading from './page/Loading/Loading';
+
+function App() {
+  const isLoading = useSelector((state: RootState) => state.isLoading);
+  const [pageIsDelete, setPageIsDelete] = useState(isLoading)
+  useEffect(() => {
+    let timer = NaN
+    if (!isLoading) {
+      timer = setTimeout(() => {
+        setPageIsDelete(false)
+      }, 550)
+    } else {
+      setPageIsDelete(true)
+    }
+    return () => { clearTimeout(timer) }
+  }, [isLoading])
+  return (
+    <ConfigProvider locale={zhCN}>
+      {
+        pageIsDelete ? (<Loading />) : ''
+      }
+      <div className="App" >
+        <Wrap />
+      </div>
+    </ConfigProvider>
+  )
+}
+
+export default App;

@@ -1,6 +1,7 @@
 # Getting Started with Create React App
+自定义字体采用TsangerYuMo，
+灵感来源于code open
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

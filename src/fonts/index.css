@@ -1,0 +1,5 @@
+@font-face{
+    font-family:TsangerYuMo;
+    src:url('./W02.ttf');
+}
+body,td,th {font-family:TsangerYuMo;}
