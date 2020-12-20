@@ -1,5 +1,7 @@
 // ajax封装模块
-import axios from 'axios'
+import { message } from 'antd'
+import axios, { AxiosResponse, AxiosError } from 'axios'
+import { isValidKey } from '../utils/common'
 
 type Method = 'get' | 'GET'
   | 'delete' | 'Delete'
@@ -12,7 +14,7 @@ type Method = 'get' | 'GET'
 export interface AxiosRequestConfig {
   url: string
   method?: Method
-  data?: any
+  data?: object
   params?: any
 }
 export interface ResData {
@@ -29,7 +31,7 @@ const instance = axios.create({
   responseType: "json",
   withCredentials: true, // 是否允许带cookie这些
   headers: {
-    "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
+    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
   }
 })
 export const Api = (config: AxiosRequestConfig) => {
@@ -77,19 +79,49 @@ export const Api = (config: AxiosRequestConfig) => {
 }
 
 // Add a request interceptor， 发送请求之前
-instance.interceptors.request.use((config) => {
+instance.interceptors.request.use((config: any) => {
+  if (config.method === "POST" || config.method === "post") {
+    const params = new URLSearchParams()
+    for (const key in config.data) {
+      if (config.data.hasOwnProperty(key)) {
+        params.append(key, config.data[key])
+      }
+    }
+    config.data = params
+  }
   //add auth
   return config;
 }, (error) => {
   return Promise.reject(error);
 });
 
+const httpStatus = {
+  500: '尚未连接到后端'
+}
+
 // Add a response interceptor
-instance.interceptors.response.use((response) => {
-  // 返回错误判断(服务器端定义的err code)
-  //保存auth token
+instance.interceptors.response.use((response: AxiosResponse) => {
+  switch (response.status) {
+    case 201:
+      message.success({
+        top: 56,
+        content: response.data.msg
+      })
+  }
   return response;
-}, (error) => {
-  // 可以在后面的请求中catch
+}, (error: AxiosError) => {
+  if (error.response !== undefined) {
+    if (isValidKey(error.response.status, httpStatus)) {
+      message.error({
+        top: 56,
+        content: httpStatus[error.response.status]
+      })
+    } else {
+      message.error({
+        top: 56,
+        content: error.response.data.msg
+      })
+    }
+  }
   return Promise.reject(error);
 });
