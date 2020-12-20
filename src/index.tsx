@@ -6,12 +6,19 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import store from './redux/store'
 import { setLoading, setClient } from './redux/actions'
+import { ThemeProvider } from 'styled-components'
+
+const theme = {
+  primary: "#c14652",
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
