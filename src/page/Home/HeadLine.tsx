@@ -4,6 +4,7 @@ import hi from "../../img/hi.png"
 import codepower from "../../img/codepower.png"
 import experience from "../../img/experience.png"
 import designpower from "../../img/designpower.png"
+import { isValidKey } from '../../utils/common'
 
 type propsType = {
   headline: string;
@@ -17,13 +18,10 @@ const imageList = {
   'hi': hi, 'codepower': codepower, 'experience': experience, 'designpower': designpower
 }
 
-function isValidCodon(codon: string): codon is keyof typeof imageList {
-  return codon in imageList;
-}
 
 export default function HeadLine(props: propsType) {
   const nativeImage = useCallback(() => {
-    if (!isValidCodon(props.headline)) {
+    if (!isValidKey(props.headline, imageList)) {
       throw Error('invalid sequence');
     }
     return imageList[props.headline]
