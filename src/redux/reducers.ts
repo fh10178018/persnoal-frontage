@@ -5,7 +5,15 @@ const init = {
   cursour: 'pointer',
   curPage: 0,
   pageList: ['主页', '关于我', '我的简历', '我的能力', '我的日志', '联系我'],
-  isPC: true
+  isPC: true,
+  resumes: {
+    email: '1206758827@qq.com',
+    tel: '18817555016',
+    address: '暂无',
+    weixinImageUrl: 'upload/images/2020-12-20/weixin.png',
+    qqImageUrl: 'upload/images/2020-12-20/qq.png',
+    csdnUrl: 'https://blog.csdn.net/qq_41411483'
+  }
 }
 const reducers = (state = init, action: any) => {
   switch (action.type) {
