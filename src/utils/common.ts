@@ -44,3 +44,8 @@ export function useDebounce(func: Function, wait: number, isImmediate: boolean =
       }
     }, [current, func, isImmediate, wait])
 }
+
+export function isValidKey(key: string | number | symbol, object: object): key is keyof typeof object {
+  if (key === undefined) return false
+  return key in object;
+}
