@@ -8,9 +8,11 @@ import { ConfigProvider } from 'antd';
 import { useSelector } from 'react-redux'
 import { RootState } from './redux/reducers'
 import Loading from './page/Loading/Loading';
+import Mouse from './page/Mouse';
+import Footer from './components/content/Footer';
 
 function App() {
-  const isLoading = useSelector((state: RootState) => state.isLoading);
+  const isLoading = useSelector((state: RootState) => state.htmlIsLoading);
   const [pageIsDelete, setPageIsDelete] = useState(isLoading)
   useEffect(() => {
     let timer = NaN
@@ -30,6 +32,8 @@ function App() {
       }
       <div className="App" >
         <Wrap />
+        <Mouse />
+        <Footer />
       </div>
     </ConfigProvider>
   )
