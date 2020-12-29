@@ -24,7 +24,7 @@ const MouseWrapper = styled.div.attrs((props: PropsType) => {
   width: 46px;
   box-sizing: border-box;
   border-radius: 50%;
-  background-color:rgba(0, 0, 0, 0.25);
+  background-color:#fafafa7d;
   transition: opacity .3s ease-in-out, transform 300ms ease-in-out;
   display:flex;
   justify-content:center;
@@ -41,7 +41,7 @@ const MouseSpan = styled.span`
   display: block;
   border-radius: 15px;
   margin:0 auto;
-  border: 3px solid white;
+  border: 3px solid rgb(195,69,80);
 `
 const MouseMove = styled.span`
   position: absolute;
@@ -51,7 +51,7 @@ const MouseMove = styled.span`
   width: 8px;
   height: 8px;
   margin: -4px 0 0 -4px;
-  background: white;
+  background: linear-gradient(to right,rgb(236,200,126) 0%,rgb(195,69,80) 100%);
   border-radius: 4px;
   animation: scroll-ani 2s linear infinite;
 `
@@ -78,13 +78,15 @@ export default function Mouse() {
     <>
       {
         isPC ? (
-          <MouseWrapper isPointer={pointer} isDead={isDead} style={{
-            top: postion[0] + 'px', left: postion[1] + 'px'
-          }}>
-            <MouseSpan>
-              <MouseMove></MouseMove>
-            </MouseSpan>
-          </MouseWrapper >
+          <>
+            <MouseWrapper isPointer={pointer} isDead={isDead} style={{
+              top: postion[0] + 'px', left: postion[1] + 'px'
+            }}>
+              <MouseSpan>
+                <MouseMove></MouseMove>
+              </MouseSpan>
+            </MouseWrapper >
+          </>
         ) : ''
       }
     </>
