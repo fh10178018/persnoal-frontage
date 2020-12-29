@@ -1,17 +1,17 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 // 节流
 export function useThrottle(func: Function, wait: number) {
-  let previous = 0
-  return function (this: any) {
+  const [previous, setPrevious] = useState(0)
+  return useCallback(function (this: any) {
     const now = Date.now()
     const context = this;
     const arg = arguments;
     if (now - previous > wait) {
-      previous = now
+      setPrevious(now)
       func.apply(context, arg)
     }
-  }
+  }, [func, previous, wait])
 }
 interface IPoint {
   func: Function
