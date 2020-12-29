@@ -96,18 +96,18 @@ instance.interceptors.request.use((config: any) => {
 });
 
 const httpStatus = {
-  500: '尚未连接到后端'
+  504: '尚未连接到后端'
 }
 
 // Add a response interceptor
 instance.interceptors.response.use((response: AxiosResponse) => {
-  switch (response.status) {
-    case 201:
-      message.success({
-        top: 56,
-        content: response.data.msg
-      })
-  }
+  // switch (response.status) {
+  //   case 201:
+  //     message.success({
+  //       top: 56,
+  //       content: response.data.msg
+  //     })
+  // }
   return response;
 }, (error: AxiosError) => {
   if (error.response !== undefined) {
