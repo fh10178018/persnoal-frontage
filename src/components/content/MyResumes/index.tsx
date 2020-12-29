@@ -1,11 +1,17 @@
 import { Col, Row, Timeline } from 'antd';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { RootState } from '../../../redux/reducers';
 import { MyRibbon } from '../../common';
+import { ExperienceType } from '../../../redux/actions';
 
 const MyRow = styled(Row)`
   font-size: 18px;
   width: 70vw;
+  position: absolute;
+    top: 50%;
+    margin-top: -266.75px;
   @media screen and (max-width: 875px){
     width: 95vw;
     font-size: small;
@@ -32,28 +38,25 @@ const Box = styled.div`
 `
 
 export default function Resumes() {
+  const experience = useSelector((state: RootState) => state.experience);
   return (
-    <MyRibbon placement="start" text="工作经验 & 学习能力">
-      <Box>
-        <MyRow gutter={[20, 0]}>
-          <Col span={24}>
+    <MyRow gutter={[20, 0]}>
+      <Col span={24}>
+        <MyRibbon placement="start" text="工作经验 & 学习能力">
+          <Box>
             <MyTimeLine>
-              <MyTimeLineItem >
-                <h4><strong>前端开发学习阶段 (2020- )</strong></h4>
-                <p>掌握相关前端基础知识，学习和实践 Vue3.0 以及 React-TypeScript，分别开发一个相关项目，学习和增进算法能力，曾在在上海健医科技实习一个月,主要是以TypeScript-React和ArgularJs相关的开发工作为主。</p>
-              </MyTimeLineItem>
-              <MyTimeLineItem position={"left"}   >
-                <h4><strong>勤工助学创意工作室正经理 (2019 - 2020)</strong></h4>
-                <p>负责产品和活动的宣传设计策划，以及部门人员安排。负责校名纪念品大赛的宣传策划，人员安排和物资安排。开发过基于Django的MVC模式下的创意工作室宣传Web应用。</p>
-              </MyTimeLineItem>
-              <MyTimeLineItem >
-                <h4><strong>勤工助学创意工作室设计师 (2017 - 2019)</strong></h4>
-                <p>负责产品宣传设计，海报设计和LOGO等设计，宣传视频制作，有着良好的审美观。与团队参加多个创新赛式，做过基于Django的MVC模式下的线上导航Web应用和微信小程序开发。</p>
-              </MyTimeLineItem>
+              {experience.map((item: ExperienceType, index: number) => {
+                return (
+                  <MyTimeLineItem key={index}>
+                    <h4><strong>{item.title}</strong></h4>
+                    <p>{item.content}</p>
+                  </MyTimeLineItem>
+                )
+              })}
             </MyTimeLine>
-          </Col>
-        </MyRow>
-      </Box>
-    </MyRibbon>
+          </Box>
+        </MyRibbon>
+      </Col>
+    </MyRow>
   )
 }
