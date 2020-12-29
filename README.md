@@ -1,10 +1,13 @@
 ## 介绍
 本项目是基于React-TypeScript的一个个人简历 Web App，UI样式基于ant-design + styled-components,主要是实现大屏幕滚动单页交互。
 
+## 主要逻辑内容
+页面滚动内容涉及到的主要技术：useDebounce、react-transition-group、redux
+
 ## 本项目参考内容
 * 自定义字体采用TsangerYuMo
 
-* 部分灵感来源于code open中的部分项目
+* 部分灵感来源于codepen中的部分项目
 
 * 部分图片来源于千图网的国潮风格图片（也有后续修改）
 
