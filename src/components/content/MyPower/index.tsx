@@ -1,7 +1,10 @@
 import { Col, Progress, Row } from 'antd';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { MyRibbon } from '../../../components/common';
+import { CodeSkillsType, DesignSkillsType } from '../../../redux/actions';
+import { RootState } from '../../../redux/reducers';
 
 
 const SkillWrapper = styled.div`
@@ -12,16 +15,15 @@ const SkillItem = styled.div`
 `
 
 const MyRow = styled(Row)`
-  position: fixed;
   font-size: 18px;
-  top: 50vh;
-  transform: translateY(-80%);
-  margin: 0 auto;
   width: 70vw;
-  @media screen and (max-width: 875px){
+  position: absolute;
+  top: 50%;
+  margin-top:-154.5px!important;
+  @media screen and (max-width: 920px){
     width: 95vw;
+    margin-top:-251.4px!important;
     font-size: small;
-    transform: translateY(-50%);
   }
 `
 
@@ -33,19 +35,8 @@ const Box = styled.div`
 `
 
 export default function MyPower() {
-  const CodeSkills = [
-    { name: 'JavaScript', percent: 75 },
-    { name: 'HTML/CSS', percent: 75 },
-    { name: 'Vue3.0', percent: 65 },
-    { name: 'React-TypeScript', percent: 60 }
-  ]
-  const DesignSkills = [
-    { name: 'Photoshop', percent: 85 },
-    { name: 'Illustayor', percent: 70 },
-    { name: 'After Effects', percent: 45 },
-    { name: 'Premiere', percent: 60 }
-  ]
-
+  const codeSkills = useSelector((state: RootState) => state.codeSkills);
+  const designSkills = useSelector((state: RootState) => state.designSkills);
   return (
     <MyRow gutter={[20, 10]}>
       {/* <Col span={12}>
@@ -61,11 +52,11 @@ export default function MyPower() {
         <MyTag>PR</MyTag>
         <MyTag>Illustrator</MyTag>
       </Col> */}
-      <Col span={12}>
+      <Col xs={{ span: 24 }} lg={{ span: 12 }}>
         <MyRibbon placement="start" text="编程能力">
           <Box>
             {
-              CodeSkills.map((Item, index) => {
+              codeSkills.map((Item: CodeSkillsType, index: number) => {
                 return (
                   <SkillWrapper key={index}>
                     <SkillItem>
@@ -87,11 +78,11 @@ export default function MyPower() {
           </Box>
         </MyRibbon>
       </Col>
-      <Col span={12}>
+      <Col xs={{ span: 24 }} lg={{ span: 12 }}>
         <MyRibbon placement="start" text="设计能力">
           <Box>
             {
-              DesignSkills.map((Item, index) => {
+              designSkills.map((Item: DesignSkillsType, index: number) => {
                 return (
                   <SkillWrapper key={index}>
                     <SkillItem>
