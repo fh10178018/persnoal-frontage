@@ -7,7 +7,7 @@
 ## 本项目参考内容
 * 自定义字体采用TsangerYuMo
 
-* 部分灵感来源于codepen中的部分项目
+* 部分灵感来源于code open中的部分项目
 
 * 部分图片来源于千图网的国潮风格图片（也有后续修改）
 
@@ -35,7 +35,7 @@ type: 用于说明 commit 的类别，主要下面几个标识。
 |   🆕   |       `:new:`        | feat：新功能（feature）                                   |
 |   🐛   |       `:bug:`        | fix：修补bug                                              |
 |   🔧   |      `:wrench:`      | chore：修改配置文件                                       |
-|   💄   |      `:wrench:`      | style： 格式（不影响代码运行的变动）                      |
+|   💄   |     `:lipstick:`     | style： 格式（不影响代码运行的变动）                      |
 |   📝   |       `:memo:`       | docs：文档（documentation）                               |
 |   🔨   |      `:hammer:`      | refactor：重构（即不是新增功能，也不是修改bug的代码变动） |
 |   ➕   | `:heavy_plus_sign:`  | 增加依赖                                                  |
