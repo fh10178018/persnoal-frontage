@@ -14,7 +14,8 @@ const Wrap = styled.div`
   height:100%;
 `
 const MyButton = styled(Button)`
-  width:100%;
+  width:auto;
+  min-width:263px;
   height: 80px;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.12);
   background: #fafafabf!important;
@@ -33,6 +34,14 @@ const MyButton = styled(Button)`
   :hover{
     h3{
       transform:scale(1.1);
+    }
+  }
+  @media screen and (max-width: 990px){
+    width:100%;
+    min-width: 0;
+    height:auto;
+    >h3{
+      font-size: medium!important;
     }
   }
 `
@@ -54,15 +63,23 @@ export default function ContactsExisting() {
     <Wrap>
       <MyRow >
         <Col span={24}>
-          <CopyToClipboard text={resumes.tel} onCopy={onCopy}>
-            <MyButton type="text" size="large" onMouseEnter={() => dispatch(setCursour('hover'))} onMouseLeave={() => dispatch(setCursour('pointer'))}><h3><PhoneFilled /><span>{resumes.tel}</span></h3></MyButton>
-          </CopyToClipboard>
-          <CopyToClipboard text={resumes.email} onCopy={onCopy}>
-            <MyButton type="text" size="large" onMouseEnter={() => dispatch(setCursour('hover'))} onMouseLeave={() => dispatch(setCursour('pointer'))}><h3><MailFilled /><span>{resumes.email}</span></h3></MyButton>
-          </CopyToClipboard>
-          <CopyToClipboard text={resumes.address} onCopy={onCopy}>
-            <MyButton type="text" size="large" onMouseEnter={() => dispatch(setCursour('hover'))} onMouseLeave={() => dispatch(setCursour('pointer'))}><h3><EnvironmentFilled /><span>{resumes.address}</span></h3></MyButton>
-          </CopyToClipboard>
+          <Row>
+            <Col xs={{ span: 24 }} lg={{ span: 24 }} >
+              <CopyToClipboard text={resumes.tel} onCopy={onCopy}>
+                <MyButton type="text" size="large" onMouseEnter={() => dispatch(setCursour('hover'))} onMouseLeave={() => dispatch(setCursour('pointer'))}><h3><PhoneFilled /><span>{resumes.tel}</span></h3></MyButton>
+              </CopyToClipboard>
+            </Col>
+            <Col xs={{ span: 24 }} lg={{ span: 24 }}>
+              <CopyToClipboard text={resumes.email} onCopy={onCopy}>
+                <MyButton type="text" size="large" onMouseEnter={() => dispatch(setCursour('hover'))} onMouseLeave={() => dispatch(setCursour('pointer'))}><h3><MailFilled /><span>{resumes.email}</span></h3></MyButton>
+              </CopyToClipboard>
+            </Col>
+            <Col xs={{ span: 24 }} lg={{ span: 24 }}>
+              <CopyToClipboard text={resumes.address} onCopy={onCopy}>
+                <MyButton type="text" size="large" onMouseEnter={() => dispatch(setCursour('hover'))} onMouseLeave={() => dispatch(setCursour('pointer'))}><h3><EnvironmentFilled /><span>{resumes.address}</span></h3></MyButton>
+              </CopyToClipboard>
+            </Col>
+          </Row>
         </Col>
         <Col span={24}>
           <h5><strong>社交网络</strong></h5>
