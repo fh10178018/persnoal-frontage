@@ -6,7 +6,7 @@ import { RootState } from '../../redux/reducers'
 
 const LoadingWrap = styled.div.attrs(props => {
   return {
-    active: useSelector((state: RootState) => state.isLoading)
+    active: useSelector((state: RootState) => state.htmlIsLoading)
   }
 })`
   width:100vw;
@@ -17,6 +17,7 @@ const LoadingWrap = styled.div.attrs(props => {
   z-index:1000;
   background: white;
   display:flex;
+  flex-direction:column;
   justify-content:center;
   align-items:center;
   transition:opacity 500ms;
@@ -25,8 +26,10 @@ const LoadingWrap = styled.div.attrs(props => {
   }};
 `
 const Loading: React.FC = () => {
+  const curProgressNum = useSelector((state: RootState) => state.progressNum)
+  const progress = useSelector((state: RootState) => state.loadingProgress)
   return (
-    <LoadingWrap >< Spin size="large" /></LoadingWrap>
+    <LoadingWrap >< Spin size="large" /><div>{progress[curProgressNum]}</div></LoadingWrap>
   )
 
 }
