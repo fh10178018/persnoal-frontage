@@ -14,11 +14,6 @@ import {
   SET_INTRODUCTION,
   SET_PROGRESS_NUM
 } from './actions'
-import Introduction from '../components/content/Introduction'
-import MyPower from '../components/content/MyPower'
-import MyResumes from '../components/content/MyResumes'
-import Contacts from '../components/content/Contacts'
-import Blog from '../components/content/Blog'
 import React from 'react'
 import {
   HomeOutlined,
@@ -28,6 +23,13 @@ import {
   UserOutlined,
   BulbOutlined
 } from '@ant-design/icons';
+
+const Introduction = React.lazy(() => import("../components/content/Introduction"))
+const MyPower = React.lazy(() => import("../components/content/MyPower"))
+const MyResumes = React.lazy(() => import("../components/content/MyResumes"))
+const Contacts = React.lazy(() => import("../components/content/Contacts"))
+const Blog = React.lazy(() => import("../components/content/Blog"))
+
 
 const init = {
   htmlIsLoading: true,
@@ -42,7 +44,7 @@ const init = {
     { name: '我的作品', component: <Blog />, icon: <BookOutlined /> },
     { name: '联系我', component: <Contacts />, icon: <MessageOutlined /> }
   ],
-  loadingProgress: ['页面初始化完毕', '成功获取日志列表信息', '获取最新简历页内容信息', '获取经验&学习列表信息', '获取介绍列表信息', '获取设计能力列表信息', '获取编程能力列表信息', '加载完毕'],
+  loadingProgress: ['页面初始化中', '获取日志列表信息', '获取最新简历页内容信息', '获取经验&学习列表信息', '获取介绍列表信息', '获取设计能力列表信息', '获取编程能力列表信息', '加载完毕'],
   progressNum: 0,
   pageAction: true, // true为下一页或下几页操作，false为相反
   isPC: true,

@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useEffect } from 'react'
-import { Layout, Menu } from 'antd'
+import React, { useState, useCallback } from 'react'
+import { Layout } from 'antd'
 import Home from './Home'
 import Header from '../components/content/Header'
 import { useDebounce } from '../utils/common'
@@ -11,23 +11,7 @@ import Background from './Background/Background'
 import { useDispatch } from 'react-redux'
 import { setPage, setPageAction } from '../redux/actions'
 const { Content } = Layout;
-const Ul = styled.ul`
-  margin:0;
-  padding:0;
-  list-style:none;
-  height:100vh;
-  overflow:hidden;
-  position: relative;
-  >li{
-    width:100%;
-    height:100%;
-    top: 0;
-    left: 0;
-    position:absolute;
-    transition:transform 500ms cubic-bezier(.25, 1, .5, 1.25);
-    z-index:1;
-  }
-`
+
 const MyLayout = styled(Layout)`
   background:url(${myImage}) repeat;
 
@@ -88,21 +72,22 @@ export default function Wrapper() {
   const [placememt, SetPlacement] = useState({
     startY: 0, endY: 0
   })
-  const handleTouchStart = (e: any) => {
-    SetPlacement({ ...placememt, startY: e.touches[0].clientY })
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    SetPlacement({ ...placememt, startY: e.targetTouches[0].pageY })
   }
 
-  const handleTouchMove = (e: any) => {
-    SetPlacement({ ...placememt, endY: e.touches[0].clientY })
-  }
-
-  const handleTouchEnd = (e: any) => {
-    if (placememt.startY - placememt.endY > 0) {
-      cutPage()
-    } else if (placememt.startY - placememt.endY < 0) {
-      cutPage(true)
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    const endY = e.targetTouches[0].pageY;
+    if (!wheelIsClose) {
+      if (endY - placememt.startY > 0) {
+        cutPage(true)
+      } else {
+        cutPage()
+      }
     }
   }
+
 
   return (
     <MyLayout>
@@ -113,8 +98,7 @@ export default function Wrapper() {
       }}>
         <Content
           onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
+          onTouchMove={useDebounce((e: any) => handleTouchMove(e), 500, true)}
           onWheel={useDebounce((e: any) => handleScroll(e), 500, true)}
           style={{
             backgroundColor: "transparent",

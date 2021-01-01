@@ -1,4 +1,3 @@
-import store from './store'
 export const SET_CURSOUR = 'set_cursour'
 export const SET_PAGE = 'set_page'
 export const CLIENT_IS_PC = 'client_is_pc'
