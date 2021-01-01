@@ -29,7 +29,7 @@ const MyRow = styled(Row)`
 
 const Box = styled.div`
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.12);
-  background: #fafafabf;
+  background: rgb(255 255 255 / 41%);
   border-radius:5px;
   padding:60px 15px 15px 15px;
 `
@@ -39,19 +39,6 @@ export default function MyPower() {
   const designSkills = useSelector((state: RootState) => state.designSkills);
   return (
     <MyRow gutter={[20, 10]}>
-      {/* <Col span={12}>
-        <MyDivider orientation="left">知识能力</MyDivider>
-        <MyTag>Ant Design of React</MyTag>
-        <MyTag>Styled Components of React</MyTag>
-        <MyTag>Django-MVC模式</MyTag>
-        <MyTag>Express+MongoDB的相关接口开发</MyTag>
-        <MyTag>Github</MyTag>
-        <MyTag>Postman ApiPOST</MyTag>
-        <MyTag>Photoshop</MyTag>
-        <MyTag>AE</MyTag>
-        <MyTag>PR</MyTag>
-        <MyTag>Illustrator</MyTag>
-      </Col> */}
       <Col xs={{ span: 24 }} lg={{ span: 12 }}>
         <MyRibbon placement="start" text="编程能力">
           <Box>

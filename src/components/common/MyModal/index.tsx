@@ -23,6 +23,12 @@ const MModal = styled(Modal)`
     border-radius: 10px;
     overflow:hidden;
   }
+  @media screen and (max-width: 990px){
+    width:100%!important;
+    .ant-modal-body{
+      margin: 0 auto;
+    }
+  }
 `
 const Box = styled.div`
   padding:0 10px 10px 10px;
@@ -47,7 +53,8 @@ export default function MyModal(props: ModalProps & porpsType) {
     }
   }, [props.top])()
   return (
-    <MModal {...props} footer={null} closable={false} style={nativeStyle} width={'70vw'} bodyStyle={{ padding: 0 }} >
+    <MModal {...props} footer={null} closable={false} style={nativeStyle} width={'70vw'} bodyStyle={{ padding: 0 }
+    } >
       <MyRibbon placement="start" text={props.title}>
         <Header>
           <div className="action">

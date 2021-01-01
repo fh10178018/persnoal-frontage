@@ -4,7 +4,7 @@ import { MyRibbon } from '../../common'
 import ContactForm from './form'
 const Wrap = styled.div`
   width:100%;
-  background-color: #fafafabf;
+  background-color: rgb(255 255 255 / 41%);
   padding:60px 15px 15px 15px;
   border-radius:5px;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.12);

@@ -32,7 +32,7 @@ const MyTimeLineItem = styled(Timeline.Item)`
 `
 const Box = styled.div`
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.12);
-  background: #fafafabf;
+  background: rgb(255 255 255 / 41%);
   border-radius:5px;
   padding:60px 15px 15px 15px;
 `

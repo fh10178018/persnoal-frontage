@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import styled from 'styled-components'
-import { Image } from 'antd'
+import { Image, Skeleton } from 'antd'
 const Wrap = styled.div`
   text-align:center;
 `
@@ -15,6 +15,7 @@ export default function QqAndWeixin(props: propsType) {
   return (
     <Wrap>
       <Image
+        placeholder={<Skeleton.Image style={{ width: 200, height: 200 }} />}
         width={200}
         height={200}
         src="error"
