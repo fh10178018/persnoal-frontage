@@ -1,13 +1,6 @@
 import React from 'react';
 import styled from "styled-components/macro";
-import wave1 from '../../img/wave1.png'
-import wave2 from '../../img/wave2.png'
-import wave3 from '../../img/wave3.png'
-import wave4 from '../../img/wave4.png'
-import wave5 from '../../img/wave5.png'
-import wave6 from '../../img/wave6.png'
-import wave7 from '../../img/wave7.png'
-import wave8 from '../../img/wave8.png'
+import wave from '../../img/wave.png'
 
 const Wrapper = styled.div`
   position:fixed;
@@ -15,6 +8,12 @@ const Wrapper = styled.div`
   right:0;
   width:100vw;
   height:100vh;
+  >div{
+    overflow:hidden;
+    width:100vw;
+    position: absolute;
+    bottom: 0;
+  }
   img{
     position:absolute;
     left:0;
@@ -22,41 +21,96 @@ const Wrapper = styled.div`
     width:100vw;
   }
 `
-const MyImage1 = styled.img`
+const MyImage1 = styled.div`
+height:10vw;
   animation: wave 3s infinite linear;
+  img{
+    top:-164.8vw;
+  }
 `
-const MyImage2 = styled.img`
+const MyImage2 = styled.div`
+  height:21vw;
   animation: wave 2.7s infinite linear;
+  img{
+    top:-143.5vw;
+  }
 `
-const MyImage3 = styled.img`
+const MyImage3 = styled.div`
+  height:8vw;
   animation: wave 1.2s infinite linear;
+  img{
+    top:-135vw;
+  }
 `
-const MyImage4 = styled.img`
+const MyImage4 = styled.div`
+  height:13vw;
   animation: wave 1s infinite linear;
+  img{
+    top:-121.5vw;
+  }
 `
-const MyImage5 = styled.img`
+const MyImage5 = styled.div`
+  height:16vw;
   animation: wave 2.5s infinite linear;
+  img{
+    top:-102.4vw;
+  }
 `
-const MyImage6 = styled.img`
+const MyImage6 = styled.div`
+  height:28vw;
   animation: wave 1.3s infinite linear;
+  img{
+    top:-75.4vw;
+  }
 `
-const MyImage7 = styled.img`
+const MyImage7 = styled.div`
+  height:26vw;
   animation: wave 2s infinite linear;
+  img{
+    top:-49vw;
+  }
 `
-const MyImage8 = styled.img`
+const MyImage8 = styled.div`
+  height:49vw;
   animation: wave 3.4s infinite linear;
+  img{
+    top:0;
+  }
 `
 export default function Background() {
   return (
     <Wrapper>
-      <MyImage8 src={wave8}></MyImage8>
-      <MyImage7 src={wave7}></MyImage7>
+      <MyImage8>
+        <img alt={wave} src={wave} />
+      </MyImage8>
+      <MyImage7>
+        <img alt={wave} src={wave} />
+      </MyImage7>
+      <MyImage6>
+        <img alt={wave} src={wave} />
+      </MyImage6>
+      <MyImage5>
+        <img alt={wave} src={wave} />
+      </MyImage5>
+      <MyImage4>
+        <img alt={wave} src={wave} />
+      </MyImage4>
+      <MyImage3>
+        <img alt={wave} src={wave} />
+      </MyImage3>
+      <MyImage2>
+        <img alt={wave} src={wave} />
+      </MyImage2>
+      <MyImage1>
+        <img alt={wave} src={wave} />
+      </MyImage1>
+      {/* <MyImage7 src={wave7}></MyImage7>
       <MyImage6 src={wave6}></MyImage6>
       <MyImage5 src={wave5}></MyImage5>
       <MyImage4 src={wave4}></MyImage4>
       <MyImage3 src={wave3}></MyImage3>
       <MyImage2 src={wave2}></MyImage2>
-      <MyImage1 src={wave1}></MyImage1>
+      <MyImage1 src={wave1}></MyImage1> */}
     </Wrapper>
   )
 }

@@ -1,10 +1,10 @@
-import React, { useCallback, Suspense, Component } from 'react'
+import React, { useCallback } from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/reducers';
 import './index.css'
 import MyBox from '../../components/common/MyBox';
-import { Spin } from 'antd';
+
 
 const card = {
   width: '100vw',
@@ -22,9 +22,7 @@ export default function Home() {
     <MyBox>
       <TransitionGroup style={card} childFactory={child => React.cloneElement(child, { classNames })}>
         <CSSTransition key={page === 1 ? 0 : page} timeout={1000} >
-          <Suspense fallback={<Spin></Spin>}>
-            {pageList[page].component}
-          </Suspense>
+          {pageList[page].component}
         </CSSTransition>
       </TransitionGroup>
     </MyBox>

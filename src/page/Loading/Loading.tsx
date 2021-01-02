@@ -21,6 +21,9 @@ const LoadingWrap = styled.div.attrs(props => {
   justify-content:center;
   align-items:center;
   transition:opacity 500ms;
+  .ant-spin-dot-item{
+    background-color: #d9363e;
+  }
   opacity: ${props => {
     return props.active ? 1 : 0
   }};

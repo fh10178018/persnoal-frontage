@@ -24,12 +24,11 @@ import {
   BulbOutlined
 } from '@ant-design/icons';
 
-const Introduction = React.lazy(() => import("../components/content/Introduction"))
-const MyPower = React.lazy(() => import("../components/content/MyPower"))
-const MyResumes = React.lazy(() => import("../components/content/MyResumes"))
-const Contacts = React.lazy(() => import("../components/content/Contacts"))
-const Blog = React.lazy(() => import("../components/content/Blog"))
-
+import Introduction from "../components/content/Introduction"
+import MyPower from "../components/content/MyPower"
+import MyResumes from "../components/content/MyResumes"
+import Contacts from "../components/content/Contacts"
+import Blog from "../components/content/Blog"
 
 const init = {
   htmlIsLoading: true,

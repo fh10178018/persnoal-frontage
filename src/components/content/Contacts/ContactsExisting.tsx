@@ -17,7 +17,7 @@ const MyButton = styled(Button)`
   width:auto;
   min-width:263px;
   height: 80px;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.12);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.12)!important;
   background: rgb(255 255 255 / 41%)!important;
   border-radius:5px;
   margin-bottom:10px;

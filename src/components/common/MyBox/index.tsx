@@ -11,6 +11,7 @@ const Wrap = styled.div`
   display:flex;
   justify-content:center;
   position: relative;
+  margin-top:57px;
 `
 
 export default function MyBox(props: porpsType) {
