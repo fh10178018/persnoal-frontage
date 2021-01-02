@@ -21,11 +21,11 @@
     "axios": "^0.21.0",
     "babel-plugin-import": "^1.13.3",
     "babel-polyfill": "^6.26.0",
+    "compression-webpack-plugin": "^7.1.1",
     "customize-cra": "^1.0.0",
     "env-cmd": "^10.1.0",
     "github-markdown-css": "^4.0.0",
     "http-proxy-middleware": "^1.0.6",
-    "konva": "^7.2.1",
     "marked": "^1.2.7",
     "react": "^17.0.1",
     "react-app-rewired": "^2.1.8",
@@ -49,7 +49,8 @@
     "build": "react-app-rewired build",
     "build:prod": "env-cmd -f .env.prod yarn build",
     "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject"
+    "eject": "react-scripts eject",
+    "serve": "serve -s -l 80  build"
   },
   "eslintConfig": {
     "extends": [
