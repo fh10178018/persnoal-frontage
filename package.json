@@ -28,6 +28,7 @@
     "http-proxy-middleware": "^1.0.6",
     "marked": "^1.2.7",
     "react": "^17.0.1",
+    "react-app-rewire-compression-plugin": "^1.0.0",
     "react-app-rewired": "^2.1.8",
     "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^17.0.1",
