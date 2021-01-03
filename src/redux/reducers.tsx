@@ -12,7 +12,8 @@ import {
   SET_DESIGN_SKILLS,
   SET_EXPERIENCE,
   SET_INTRODUCTION,
-  SET_PROGRESS_NUM
+  SET_PROGRESS_NUM,
+  SET_IMAGE_LOADED
 } from './actions'
 import React from 'react'
 import {
@@ -53,7 +54,8 @@ const init = {
   designSkills: [],
   introduction: [],
   experience: [],
-  articles: {}
+  articles: {},
+  imageLoaded:0
 }
 const reducers = (state = init, action: any) => {
   switch (action.type) {
@@ -85,6 +87,8 @@ const reducers = (state = init, action: any) => {
       return { ...state, experience: action.data }
     case SET_PROGRESS_NUM:
       return { ...state, progressNum: action.data }
+    case SET_IMAGE_LOADED:
+      return { ...state, imageLoaded: state.imageLoaded + 1 }
     default:
       return state
   }

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from "styled-components/macro";
 import wave from '../../img/wave.png'
+import { setImageLoaded } from '../../redux/actions';
+import store from '../../redux/store';
 
 const Wrapper = styled.div`
   position:fixed;
@@ -78,10 +80,15 @@ const MyImage8 = styled.div`
   }
 `
 export default function Background() {
+  const dispatch = store.dispatch
+  const handleImageLoad = () => {
+    // 用于判断页面是否加载完毕
+    dispatch(setImageLoaded())
+  }
   return (
     <Wrapper>
       <MyImage8>
-        <img alt={wave} src={wave} />
+        <img alt={wave} src={wave} onLoad={handleImageLoad} />
       </MyImage8>
       <MyImage7>
         <img alt={wave} src={wave} />
@@ -104,13 +111,6 @@ export default function Background() {
       <MyImage1>
         <img alt={wave} src={wave} />
       </MyImage1>
-      {/* <MyImage7 src={wave7}></MyImage7>
-      <MyImage6 src={wave6}></MyImage6>
-      <MyImage5 src={wave5}></MyImage5>
-      <MyImage4 src={wave4}></MyImage4>
-      <MyImage3 src={wave3}></MyImage3>
-      <MyImage2 src={wave2}></MyImage2>
-      <MyImage1 src={wave1}></MyImage1> */}
     </Wrapper>
   )
 }

@@ -5,9 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import store from './redux/store'
-import { setClient } from './redux/actions'
+import { setClient, setHtmlLoading } from './redux/actions'
 import { ThemeProvider } from 'styled-components'
-import { LoadProcedure } from './LoadProcedure';
 
 const theme = {
   primary: "#c14652",
@@ -22,7 +21,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-LoadProcedure(store)
+store.dispatch(setHtmlLoading(true))
 
 store.dispatch(setClient())
 

@@ -12,9 +12,14 @@ export const SET_CODE_SKILLS = "set_code_skills"
 export const SET_INTRODUCTION = "set_introduction"
 export const SET_EXPERIENCE = "set_experience"
 export const SET_PROGRESS_NUM = "set_progress_num"
+export const SET_IMAGE_LOADED = "set_image_loaded"
 
 export const setHtmlLoading = (val: boolean) => {
   return { type: SET_PAGE_LOADING, data: val }
+}
+
+export const setImageLoaded = () => {
+  return { type: SET_IMAGE_LOADED }
 }
 
 export const setCursour = (val: string) => {
