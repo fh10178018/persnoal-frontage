@@ -10,7 +10,8 @@ const card = {
   width: '100vw',
   height: '100%',
   display: 'flex',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  alignItems:'center'
 }
 
 export default function Home() {
