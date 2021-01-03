@@ -27,14 +27,14 @@ export interface ResData {
 // 最基本的全局配置
 const instance = axios.create({
   baseURL: '/api',
-  timeout: 2500,
+  timeout: 30000,
   responseType: "json",
   withCredentials: true, // 是否允许带cookie这些
   headers: {
     "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
   }
 })
-export const Api = (config: AxiosRequestConfig) => {
+export const Api = (config: AxiosRequestConfig): Promise<any> => {
   switch (config.method) {
     case 'GET':
     case 'get': {
