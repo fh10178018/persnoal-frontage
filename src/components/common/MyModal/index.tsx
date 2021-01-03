@@ -1,9 +1,10 @@
 import { HeartFilled } from '@ant-design/icons'
-import { Modal } from 'antd'
+import { message, Modal } from 'antd'
 import { ModalProps } from 'antd/lib/modal'
 import React, { useCallback } from 'react'
 import styled from 'styled-components'
 import { MyIconButton } from '..'
+import { Api } from '../../../api'
 import MyRibbon from '../MyRibbon'
 
 const MModal = styled(Modal)`
@@ -44,7 +45,8 @@ const Header = styled.header`
 
 type porpsType = {
   children: React.ReactNode,
-  top?: string | number
+  top?: string | number,
+  id:string
 }
 export default function MyModal(props: ModalProps & porpsType) {
   const nativeStyle = useCallback(() => {
@@ -52,13 +54,25 @@ export default function MyModal(props: ModalProps & porpsType) {
       top: typeof props.top === 'string' ? props.top : props.top + 'px'
     }
   }, [props.top])()
+  const id = useCallback(() => props.id,[props.id])()
+  const handleALike = useCallback(() => {
+    Api({
+      method:'POST',
+      url:'resumes/giveALike',
+      data:{
+        _id:id
+      }
+    }).then(() => {
+      message.success("点赞成功")
+    })
+  },[id])
   return (
     <MModal {...props} footer={null} closable={false} style={nativeStyle} width={'70vw'} bodyStyle={{ padding: 0 }
     } >
       <MyRibbon placement="start" text={props.title}>
         <Header>
           <div className="action">
-            <MyIconButton icon={<HeartFilled />} />
+            <MyIconButton onClick={handleALike} icon={<HeartFilled />} />
           </div>
         </Header>
         <Box>

@@ -26,7 +26,7 @@ const MyMarkDown = styled(ReactMarkdown)`
 
 export default function ArticleModal(props: propsType) {
   return (
-    <MyModal top="0" title={props.item.title} visible={props.visible} onCancel={props.onHide} >
+    <MyModal top="0" title={props.item.title} visible={props.visible} id={props.item._id} onCancel={props.onHide} >
       <ImgWrap>
         <Image src={'/api' + props.item.imageUrl} preview={false} alt={props.item.imageUrl} />
       </ImgWrap>
