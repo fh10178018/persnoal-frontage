@@ -1,5 +1,6 @@
 @font-face{
     font-family:TsangerYuMo;
-    src: url('W02.woff') format('woff');
+    src: url('W02.woff') format('woff'),
+    url('W02.ttf') format('ttf');
 }
 body,td,th {font-family:TsangerYuMo;}
