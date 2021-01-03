@@ -67,7 +67,7 @@ const MyTagItem = styled.li.attrs((props: itemProps) => {
   background-size: ${props => `${Math.floor(Math.sqrt(props.num + 1) * 77)}px ${Math.floor(Math.sqrt(props.num + 1) * 77)}px`};
   margin-left:${props => Math.sqrt(props.len - props.num - 1) * 60 + 'px'};
   animation: ${props => `float-y ${Math.floor(Math.sqrt(props.num + 1) * 2400)}ms linear infinite`};
-  @media screen and (max-height: 860px) {
+  @media screen and (max-width: 860px) {
     font-size:xx-small;
     width:${props => Math.floor(Math.sqrt(props.num + 1) * 63) + 'px'};
     height:${props => Math.floor(Math.sqrt(props.num + 1) * 63) + 'px'};

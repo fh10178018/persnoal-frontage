@@ -12,6 +12,9 @@ const Wrap = styled.div`
   justify-content:center;
   position: relative;
   margin-top:57px;
+  @media screen and (max-width: 875px){
+    margin-top:0;
+  }
 `
 
 export default function MyBox(props: porpsType) {

@@ -10,10 +10,11 @@ const MyRow = styled(Row)`
   font-size: 18px;
   width: 70vw;
   position: absolute;
-    top: 50%;
-    margin-top: -266.75px;
+  top: 50%;
+  margin-top: -234.75px;
   @media screen and (max-width: 875px){
     width: 95vw;
+    padding: 0 10px;
     font-size: small;
   }
 `
@@ -40,7 +41,7 @@ const Box = styled.div`
 export default function Resumes() {
   const experience = useSelector((state: RootState) => state.experience);
   return (
-    <MyRow gutter={[20, 0]}>
+    <MyRow>
       <Col span={24}>
         <MyRibbon placement="start" text="工作经验 & 学习能力">
           <Box>

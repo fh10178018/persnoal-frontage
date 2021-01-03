@@ -20,10 +20,24 @@ const MyRow = styled(Row)`
   position: absolute;
   top: 50%;
   margin-top:-154.5px!important;
+  .ant-col:nth-child(1){
+    padding-right:10px;
+  }
+  .ant-col:nth-child(2){
+    padding-left:10px;
+  }
   @media screen and (max-width: 920px){
     width: 95vw;
+    padding: 0 10px;
     margin-top:-251.4px!important;
     font-size: small;
+    .ant-col:nth-child(1){
+      padding-right:0;
+      padding-bottom:5px;
+    }
+    .ant-col:nth-child(2){
+      padding-left:0;
+    }
   }
 `
 
@@ -38,7 +52,7 @@ export default function MyPower() {
   const codeSkills = useSelector((state: RootState) => state.codeSkills);
   const designSkills = useSelector((state: RootState) => state.designSkills);
   return (
-    <MyRow gutter={[20, 10]}>
+    <MyRow>
       <Col xs={{ span: 24 }} lg={{ span: 12 }}>
         <MyRibbon placement="start" text="编程能力">
           <Box>

@@ -9,8 +9,9 @@ const MyRow = styled(Row)`
   width: 70vw;
   position: absolute;
   top: 50%;
-  margin-top:-304.5px!important;
+  margin-top:-214.5px!important;
   @media screen and (max-width: 875px){
+    padding: 0 10px;
     width: 95vw;
     font-size: small;
   }
@@ -25,7 +26,7 @@ const Box = styled.div`
 
 export default function ContactMe() {
   return (
-    <MyRow gutter={[20, 10]}>
+    <MyRow>
       <Col span={24}>
         <MyRibbon placement="start" text="我的作品">
           <Box>

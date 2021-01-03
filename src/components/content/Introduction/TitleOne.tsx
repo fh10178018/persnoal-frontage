@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react'
 import styled from "styled-components/macro";
 import name from "../../../img/name.gif"
+import { setImageLoaded } from '../../../redux/actions';
+import store from '../../../redux/store';
 import HeadLine from './HeadLine';
 
 type PropsType = {
@@ -41,7 +43,7 @@ const Wrap = styled.div.attrs((props: PropsType) => {
   font-size: 38px;
   transition:500ms;
   user-select: none;
-  transform:${props => props.isZoom ? 'scale(0.4) translateX(80px) ' : 'scale(1)'};
+  transform:${props => props.isZoom ? 'scale(0.4)' : 'scale(1)'};
   transform-origin:left top;
 `
 const Name = styled.img`
@@ -53,17 +55,17 @@ const Name = styled.img`
 `
 const Introduce = styled.div`
   display: flex;
-  font-size:45px;
+  font-size:40px;
   flex-direction: row;
   align-items: center;
   justify-content:start;
   font-weight: 900;
-  letter-spacing: 20px;
+  letter-spacing: 10px;
   height: 70px;
   overflow: hidden;
   width: max-content;
   @media screen and (max-width: 480px) {
-    letter-spacing: 14px;
+    letter-spacing: 5px;
     font-size:30px;
     height: 50px;
   }
@@ -82,12 +84,17 @@ const ChangeItem = styled.li`
 export default function Title(props: PropsType) {
   const nativeActive = useCallback(() => props.isActive, [props.isActive])()
   const nativeZoom = useCallback(() => props.isZoom, [props.isZoom])()
+  const dispatch = store.dispatch
+  const handleImageLoad = () => {
+    // 用于判断页面是否加载完毕
+    dispatch(setImageLoaded())
+  }
   return (
     <>
       <FakeWrap isActive={nativeActive} isZoom={nativeZoom}></FakeWrap>
       <Wrap isActive={nativeActive} isZoom={nativeZoom}>
         <HeadLine headline="hi" />
-        <Name src={name}></Name>
+        <Name src={name} onLoad={handleImageLoad}></Name>
         <Introduce>
           <span>热衷于</span>
           <ChangeUl>
