@@ -9,8 +9,16 @@ type propsType = {
   isActive: boolean;
 }
 
-const Wrap = styled.div`
+type wrapType = {
+  loaded: boolean;
+}
+
+const Wrap = styled.div.attrs((props: wrapType) => ({
+  loaded: props.loaded
+}))`
   display: inline-block;
+  ${props => props.loaded ? 'animation:bounceInRight 1s;' : ''}
+  
 `
 const MAvatar = styled.div`
   position: relative;
@@ -77,6 +85,8 @@ const MyTagItem = styled.li.attrs((props: itemProps) => {
 
 export default function MyAvatar(props: propsType) {
   const resumes = useSelector((state: RootState) => state.resumes);
+  const htmlIsLoading = useSelector((state: RootState) => state.htmlIsLoading);
+  const isFirst = useSelector((state: RootState) => state.switchRecord.substring(state.switchRecord.length - 2, state.switchRecord.length) === '-0' && state.switchRecord.substring(0, 1) !== '1');
   const my = useCallback(() => ([{
     label: '年龄',
     value: Math.ceil((new Date().getTime() - resumes.birthday) / 31536000000)
@@ -86,7 +96,7 @@ export default function MyAvatar(props: propsType) {
   }]), [resumes.birthday, resumes.major])()
   const nativeActive = useCallback(() => props.isActive, [props.isActive])()
   return (
-    <Wrap>
+    <Wrap loaded={!htmlIsLoading && isFirst}>
       <MAvatar>
         <MyTag len={my.length} isActive={nativeActive}>
           {

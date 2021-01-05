@@ -1,13 +1,16 @@
 import React, { useCallback } from 'react'
+import { useSelector } from 'react-redux';
 import styled from "styled-components/macro";
 import name from "../../../img/name.gif"
 import { setImageLoaded } from '../../../redux/actions';
+import { RootState } from '../../../redux/reducers';
 import store from '../../../redux/store';
 import HeadLine from './HeadLine';
 
 type PropsType = {
   isActive: boolean;
   isZoom: boolean;
+  loaded?: boolean;
 };
 
 const FakeWrap = styled.div.attrs((props: PropsType) => {
@@ -30,6 +33,7 @@ const Wrap = styled.div.attrs((props: PropsType) => {
   return {
     isActive: props.isActive,
     isZoom: props.isZoom,
+    loaded: props.loaded
   }
 })`
   position: absolute;
@@ -43,6 +47,7 @@ const Wrap = styled.div.attrs((props: PropsType) => {
   font-size: 38px;
   transition:500ms;
   user-select: none;
+  ${props => props.loaded ? 'animation:bounceInLeft 1s;' : ''}
   transform:${props => props.isZoom ? 'scale(0.4)' : 'scale(1)'};
   transform-origin:left top;
 `
@@ -84,6 +89,8 @@ const ChangeItem = styled.li`
 export default function Title(props: PropsType) {
   const nativeActive = useCallback(() => props.isActive, [props.isActive])()
   const nativeZoom = useCallback(() => props.isZoom, [props.isZoom])()
+  const isFirst = useSelector((state: RootState) => state.switchRecord.substring(state.switchRecord.length - 2, state.switchRecord.length) === '-0' && state.switchRecord.substring(0, 1) !== '1')
+  const htmlIsLoading = useSelector((state: RootState) => state.htmlIsLoading);
   const dispatch = store.dispatch
   const handleImageLoad = () => {
     // 用于判断页面是否加载完毕
@@ -92,7 +99,7 @@ export default function Title(props: PropsType) {
   return (
     <>
       <FakeWrap isActive={nativeActive} isZoom={nativeZoom}></FakeWrap>
-      <Wrap isActive={nativeActive} isZoom={nativeZoom}>
+      <Wrap loaded={!htmlIsLoading && isFirst} isActive={nativeActive} isZoom={nativeZoom}>
         <HeadLine headline="hi" />
         <Name src={name} onLoad={handleImageLoad}></Name>
         <Introduce>

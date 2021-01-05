@@ -41,7 +41,7 @@ export default function Introduction(props: propsType) {
   const nativePage = useCallback(() => props.page, [props.page])()
   const isPC = useSelector((state: RootState) => state.isPC);
   return (
-    <MyRow align="middle" justify="center" style={{alignItems: 'center'}}>
+    <MyRow align="middle" justify="center" style={{ alignItems: 'center' }}>
       <MyCol xs={{ span: 24, order: 2 }} lg={{ span: 12, order: 1 }}>
         <TitleOne isActive={nativePage === 0} isZoom={nativePage === 1} ></TitleOne>
         <TitleTwo isActive={nativePage === 1}></TitleTwo>
