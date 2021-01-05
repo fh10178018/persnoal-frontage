@@ -11,7 +11,7 @@ const MyRow = styled(Row)`
   width: 70vw;
   position: absolute;
   top: 50%;
-  margin-top: -234.75px;
+  margin-top: -266.75px;
   @media screen and (max-width: 875px){
     width: 95vw;
     padding: 0 10px;
@@ -20,6 +20,9 @@ const MyRow = styled(Row)`
 `
 const MyTimeLine = styled(Timeline)`
   font-size:inherit;
+  li:nth-child(3){
+    padding-bottom: 0;
+  }
 `
 const MyTimeLineItem = styled(Timeline.Item)`
   font-size:inherit;
