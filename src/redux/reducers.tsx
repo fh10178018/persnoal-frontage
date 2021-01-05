@@ -13,7 +13,8 @@ import {
   SET_EXPERIENCE,
   SET_INTRODUCTION,
   SET_PROGRESS_NUM,
-  SET_IMAGE_LOADED
+  SET_IMAGE_LOADED,
+  SET_SWITCH_RECORD
 } from './actions'
 import React from 'react'
 import {
@@ -55,7 +56,8 @@ const init = {
   introduction: [],
   experience: [],
   articles: {},
-  imageLoaded:0
+  imageLoaded: 0,
+  switchRecord: 'loading-0'// 页面加载记录，loading到0页面，0-1:0页面到1页面
 }
 const reducers = (state = init, action: any) => {
   switch (action.type) {
@@ -89,6 +91,8 @@ const reducers = (state = init, action: any) => {
       return { ...state, progressNum: action.data }
     case SET_IMAGE_LOADED:
       return { ...state, imageLoaded: state.imageLoaded + 1 }
+    case SET_SWITCH_RECORD:
+      return { ...state, switchRecord: action.data }
     default:
       return state
   }

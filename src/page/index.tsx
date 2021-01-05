@@ -9,7 +9,7 @@ import { RootState } from '../redux/reducers'
 import styled from "styled-components/macro";
 import Background from './Background/Background'
 import { useDispatch } from 'react-redux'
-import { setPage, setPageAction, setBlogList, setCodeSkills, setDesignSkills, setExperience, setHtmlLoading, setIntroduction, setProgress, setResumes  } from '../redux/actions'
+import { setPage, setPageAction, setBlogList, setCodeSkills, setDesignSkills, setExperience, setHtmlLoading, setIntroduction, setProgress, setResumes, setSwitchRecord } from '../redux/actions'
 import { Api } from '../api'
 const { Content } = Layout;
 
@@ -80,6 +80,7 @@ export default function Wrapper() {
       pageList.push('100%')
       setPageList([...pageList])
       dispatch(setPageAction(false))
+      dispatch(setSwitchRecord(page + '-' + (page - 1 >= 0 ? page - 1 : 0)))
       dispatch(setPage(page - 1 >= 0 ? page - 1 : 0))
     }
     if (!isUp && pageList[len - 1] !== '0') {
@@ -87,6 +88,7 @@ export default function Wrapper() {
       pageList.unshift('-100%')
       setPageList([...pageList])
       dispatch(setPageAction(true))
+      dispatch(setSwitchRecord(page + '-' + ((page + 1) % len)))
       dispatch(setPage((page + 1) % len))
     }
   }, [dispatch, page, pageList, pageNav.length])
@@ -101,8 +103,9 @@ export default function Wrapper() {
       res.push('100%')
     }
     setPageList(res)
+    dispatch(setSwitchRecord(page + '-' + newKey))
     dispatch(setPage(newKey))
-  }, [dispatch])
+  }, [dispatch, page])
 
   const handleScroll = useCallback((e: any) => {
     if (!wheelIsClose) {

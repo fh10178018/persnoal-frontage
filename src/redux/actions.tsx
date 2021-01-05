@@ -13,6 +13,8 @@ export const SET_INTRODUCTION = "set_introduction"
 export const SET_EXPERIENCE = "set_experience"
 export const SET_PROGRESS_NUM = "set_progress_num"
 export const SET_IMAGE_LOADED = "set_image_loaded"
+export const SET_SWITCH_RECORD = "set_switch_record"
+
 
 export const setHtmlLoading = (val: boolean) => {
   return { type: SET_PAGE_LOADING, data: val }
@@ -40,6 +42,10 @@ export const setWheel = (val: boolean) => {
 
 export const setProgress = (val: number) => {
   return { type: SET_PROGRESS_NUM, data: val }
+}
+
+export const setSwitchRecord = (val: string) => {
+  return { type: SET_SWITCH_RECORD, data: val }
 }
 
 type ResumesType = {
