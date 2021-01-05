@@ -83,10 +83,10 @@ export default function ContactsExisting() {
         </Col>
         <Col span={24}>
           <h5><strong>社交网络</strong></h5>
-          <Popover placement="top" content={<QqAndWeixin type="qq" imageUrl={resumes.weixinImageUrl} />} trigger="click">
+          <Popover placement="top" content={<QqAndWeixin type="qq" imageUrl={resumes.qqImageUrl} />} trigger="click">
             <MyIconButton icon={<WechatOutlined />} />
           </Popover>
-          <Popover placement="top" content={<QqAndWeixin type="weixin" imageUrl={resumes.qqImageUrl} />} trigger="click">
+          <Popover placement="top" content={<QqAndWeixin type="weixin" imageUrl={resumes.weixinImageUrl} />} trigger="click">
             <MyIconButton icon={<QqOutlined />} style={{ marginLeft: '8px' }} />
           </Popover>
           <Popconfirm
