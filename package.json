@@ -24,6 +24,7 @@
     "compression-webpack-plugin": "^7.1.1",
     "customize-cra": "^1.0.0",
     "env-cmd": "^10.1.0",
+    "file-loader": "^6.2.0",
     "github-markdown-css": "^4.0.0",
     "http-proxy-middleware": "^1.0.6",
     "marked": "^1.2.7",
