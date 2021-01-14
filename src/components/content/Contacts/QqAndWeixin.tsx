@@ -21,7 +21,7 @@ export default function QqAndWeixin(props: propsType) {
         src="error"
         fallback={"/api" + nativeImageUrl}
       />
-      <h4>扫一扫二维码，{isQQ ? '加我QQ好友' : '加我微信好友'}。</h4>
+      <h4>扫一扫二维码，{!isQQ ? '加我QQ好友' : '加我微信好友'}。</h4>
     </Wrap>
   )
 }
