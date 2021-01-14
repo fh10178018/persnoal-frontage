@@ -1,12 +1,11 @@
 import React, { useCallback } from 'react'
 import { useSelector } from 'react-redux';
 import styled from "styled-components/macro";
-import name from "../../../img/name.gif"
 import { setImageLoaded } from '../../../redux/actions';
 import { RootState } from '../../../redux/reducers';
 import store from '../../../redux/store';
 import HeadLine from './HeadLine';
-
+import Name from './Name';
 type PropsType = {
   isActive: boolean;
   isZoom: boolean;
@@ -51,13 +50,6 @@ const Wrap = styled.div.attrs((props: PropsType) => {
   transform:${props => props.isZoom ? 'scale(0.4)' : 'scale(1)'};
   transform-origin:left top;
 `
-const Name = styled.img`
-  max-width:450px;
-  width:100%;
-  @media screen and (max-width: 480px) {
-    max-width:320px;
-  }
-`
 const Introduce = styled.div`
   display: flex;
   font-size:40px;
@@ -91,17 +83,12 @@ export default function Title(props: PropsType) {
   const nativeZoom = useCallback(() => props.isZoom, [props.isZoom])()
   const isFirst = useSelector((state: RootState) => state.switchRecord.substring(state.switchRecord.length - 2, state.switchRecord.length) === '-0' && state.switchRecord.substring(0, 1) !== '1')
   const htmlIsLoading = useSelector((state: RootState) => state.htmlIsLoading);
-  const dispatch = store.dispatch
-  const handleImageLoad = () => {
-    // 用于判断页面是否加载完毕
-    dispatch(setImageLoaded())
-  }
   return (
     <>
       <FakeWrap isActive={nativeActive} isZoom={nativeZoom}></FakeWrap>
       <Wrap loaded={!htmlIsLoading && isFirst} isActive={nativeActive} isZoom={nativeZoom}>
         <HeadLine headline="hi" />
-        <Name src={name} onLoad={handleImageLoad}></Name>
+        <Name htmlIsLoading={htmlIsLoading} />
         <Introduce>
           <span>热衷于</span>
           <ChangeUl>
