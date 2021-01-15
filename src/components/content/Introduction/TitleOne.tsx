@@ -1,11 +1,9 @@
 import React, { useCallback } from 'react'
 import { useSelector } from 'react-redux';
 import styled from "styled-components/macro";
-import { setImageLoaded } from '../../../redux/actions';
 import { RootState } from '../../../redux/reducers';
-import store from '../../../redux/store';
 import HeadLine from './HeadLine';
-import Name from './Name';
+import Name from './Name.jsx';
 type PropsType = {
   isActive: boolean;
   isZoom: boolean;
