@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import store from './redux/store'
 import { setClient, setHtmlLoading } from './redux/actions'
 import { ThemeProvider } from 'styled-components'
+import GlobalFonts from './fonts'
 
 const theme = {
   primary: "#c14652",
@@ -15,6 +16,7 @@ const theme = {
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <Provider store={store}>
+      <GlobalFonts />
       <App />
     </Provider>
   </ThemeProvider>,

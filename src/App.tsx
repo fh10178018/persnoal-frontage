@@ -9,7 +9,6 @@ import { RootState } from './redux/reducers'
 import Loading from './page/Loading/Loading';
 import Mouse from './page/Mouse';
 import Footer from './components/content/Footer';
-import GlobalFonts from './fonts'
 function App() {
   const isLoading = useSelector((state: RootState) => state.htmlIsLoading);
   const [pageIsDelete, setPageIsDelete] = useState(isLoading)
@@ -26,7 +25,6 @@ function App() {
   }, [isLoading])
   return (
     <ConfigProvider locale={zhCN}>
-      <GlobalFonts />
       {
         pageIsDelete ? (<Loading />) : ''
       }
