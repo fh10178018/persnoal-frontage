@@ -14,6 +14,7 @@ export const SET_EXPERIENCE = "set_experience"
 export const SET_PROGRESS_NUM = "set_progress_num"
 export const SET_IMAGE_LOADED = "set_image_loaded"
 export const SET_SWITCH_RECORD = "set_switch_record"
+export const SET_AROUND_STATE = "set_around_state"
 
 
 export const setHtmlLoading = (val: boolean) => {
@@ -46,6 +47,10 @@ export const setProgress = (val: number) => {
 
 export const setSwitchRecord = (val: string) => {
   return { type: SET_SWITCH_RECORD, data: val }
+}
+
+export const setAroundState = (val: number) => {
+  return { type: SET_AROUND_STATE, data: val }
 }
 
 type ResumesType = {

@@ -14,7 +14,8 @@ import {
   SET_INTRODUCTION,
   SET_PROGRESS_NUM,
   SET_IMAGE_LOADED,
-  SET_SWITCH_RECORD
+  SET_SWITCH_RECORD,
+  SET_AROUND_STATE
 } from './actions'
 import React from 'react'
 import {
@@ -37,6 +38,7 @@ const init = {
   blogIsLoading: false,
   cursour: 'pointer',
   curPage: 0,
+  aroundState: 0,
   pageList: [
     { name: '主页', component: <Introduction page={0} />, icon: <HomeOutlined /> },
     { name: '关于我', component: <Introduction page={1} />, icon: <UserOutlined /> },
@@ -93,6 +95,8 @@ const reducers = (state = init, action: any) => {
       return { ...state, imageLoaded: state.imageLoaded + 1 }
     case SET_SWITCH_RECORD:
       return { ...state, switchRecord: action.data }
+    case SET_AROUND_STATE:
+      return { ...state, aroundState: action.data }
     default:
       return state
   }

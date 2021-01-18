@@ -66,6 +66,13 @@ export default function Mouse() {
       setIsDead(true)
     }
     else setIsDead(false)
+    /* let x = 0 */
+    /* if (e.clientX > size.width / 2) {
+      x = -Math.floor(100 * (e.clientX - size.width / 2) / (size.width / 2))
+    } else {
+      x = Math.floor(100 * (size.width / 2 - e.clientX) / (size.width / 2))
+    }
+    store.dispatch(setAroundState(x)) */
     SetPostion([e.clientY, e.clientX])
   }, [size.height, size.width])
   useEffect(() => {
