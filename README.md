@@ -1,5 +1,5 @@
 ## 介绍
-本项目是基于React-TypeScript的一个个人简历 Web App，UI样式和插件工具基于ant-design + styled-components,主要是实现大屏幕滚动单页交互。
+本项目是基于React-TypeScript的一个个人简历 Web App，UI样式和插件工具基于`ant-design` + `styled-components`,主要是实现大屏幕滚动单页交互。
 
 本项目也是我第一个亲力亲为，做的比较完整的React项目，即不论是项目创建到项目开发和设计，还是到最后搭载到服务器，并且进一步优化项目。当然还有做的不足的地方，也会逐渐完善。
 
@@ -12,12 +12,21 @@
 本项目链接为：<https://github.com/fh10178018/persnoal-frontage.git>
 
 ## 主要技术栈
-其中页面滚动涉及到的技术和页面素材设计为`useThrottle`、`useDebounce`、`redux`、`react-transition-group`、`PhotoShop`和`Inllustrator`。
+其中页面滚动涉及到的技术和页面素材设计为`useThrottle`、`useDebounce`、`redux`、`react-transition-group`、`svg`、`PhotoShop`和`Inllustrator`。
+
+## 已经完成的优化内容
+* 将部分loading过程加入html文件中，解决白屏问题，同时自行设计loading动画
+* 将多个海浪图片压缩为一张图片，通过剪切图片的形式展示，同时压缩其它图片
+* 用svg做文字遮罩动画，解决用gif动画文件过大问题
+* 提取部分自定义字体，压缩字体文件大小
+* 静态打包压缩为gz文件，方便静态资源加载
 
 ## 本项目参考内容
 * 自定义字体采用TsangerYuMo
 
 * 部分灵感来源于code open中的部分项目
+
+* 页面加载动画的设计，来源于扁平风格的一个视频，最终通过svg实现，实现工具为`Inllustrator` + `Svgator`
 
 * 部分图片来源于千图网的国潮风格图片（也有后续修改）
 
