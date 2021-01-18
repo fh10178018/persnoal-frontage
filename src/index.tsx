@@ -23,6 +23,11 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+window.onload = function () {
+  const loading = document.getElementById('loading')
+  loading && document.body.removeChild(loading)
+}
+
 store.dispatch(setHtmlLoading(true))
 
 store.dispatch(setClient())
