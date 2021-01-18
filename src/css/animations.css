@@ -36,8 +36,8 @@
     transform: translateY(0%);
   }
   50%{
-    -webkit-transform: translateY(2%);
-    transform: translateY(2%);
+    -webkit-transform: translateY(2vh);
+    transform: translateY(2vh);
   }
   100% {
     -webkit-transform: translateY(0%);
