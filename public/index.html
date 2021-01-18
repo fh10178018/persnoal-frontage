@@ -22,11 +22,37 @@
     -->
   <title>%REACT_APP_WEBSITE_TITLE%</title>
   <meta name="description" content="%REACT_APP_WEBSITE_DESCRIPTION%" />
+  <style type="text/css">
+    #loading {
+      background-color: gold;
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #loading>iframe {
+      border: none;
+    }
+
+    #loading>.progressE {
+      font-size: x-large;
+      font-weight: bold;
+      position: absolute;
+      bottom: 10vh;
+      width: 100%;
+      text-align: center;
+      animation: wave 2s infinite ease-out;
+    }
+  </style>
 </head>
 
 <body style="overflow: hidden;cursor: none!important;">
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+  <div id="loading">
+    <iframe title="loading" src="%PUBLIC_URL%/loading.svg" width="100%" height="100%"></iframe>
+    <div class="progressE">努力加载JS文件中</div>
+  </div>
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
